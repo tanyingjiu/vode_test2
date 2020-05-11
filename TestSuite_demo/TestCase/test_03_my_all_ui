@@ -1,0 +1,179 @@
+import unittest
+from time import sleep
+from PageObject.my_Exercise import my_page1
+import time
+from PageObject.login import login_page
+from Public.Decorator import setupclass, teardownclass, testcase, teststep
+from Public.ReadConfig import ReadConfig
+from PageObject.vode_my import my_page1
+
+# apk_url = ReadConfig().get_apk_url()
+# pkg_name = ReadConfig().get_pkg_name()
+# apk_path = ReadConfig().get_apk_path1()
+username = ReadConfig().get_testdata('user_name')
+pwd = ReadConfig().get_testdata('password')
+
+
+class testU(unittest.TestCase, my_page1):
+
+    @classmethod
+    @setupclass
+    def setUpClass(self):
+        self.d.app_stop_all()
+        self.d.app_start("com.vodeapp")
+
+    @classmethod
+    @teardownclass
+    def tearDownClass(self):
+        self.d.app_stop("com.vodeapp")
+
+    '''测试我的-剩下的关注元素是否存在'''
+    def test_01_my_other_ui(self):
+        time.sleep(5)
+        self.click_my1()
+        assert self.check_sever() == True
+        assert self.check_lianxi() == True
+        assert self.check_order() == True
+
+    '''测试搜索订单入口'''
+    def test_02_my_serch_order(self):
+        time.sleep(3)
+        assert self.check_search_order() == True
+        self.shop_home()
+
+    '''检查众筹商品'''
+    def test_03_my_zc_goods(self):
+        time.sleep(2)
+        assert self.check_zc_goods() == True
+        self.shop_home()
+
+    '''检查我的红包'''
+    def test_04_my_red(self):
+        time.sleep(2)
+        assert self.check_Red_envelope() == True
+        self.shop_home()
+
+    '''检查我的红包-详情页'''
+    def test_05_my_red_detail(self):
+        assert self.check_envelope_details() == True
+        self.shop_home()
+
+    '''检查抢到的红包详情'''
+    def test_06_my_red_detail01(self):
+        assert self.check_envelope_details1() == True
+        self.shop_home()
+
+    '''检查我的账户'''
+    def test_07_my_account(self):
+        assert self.check_my_account_ui() == True
+        assert self.check_account_top_up() == True
+
+    '''检查客服管理'''
+    def test_08_my_live_ke(self):
+        assert self.check_kf_live() == True
+
+    '''检查我的项目'''
+    def test_09_my_project(self):
+        self.slide_half()
+        time.sleep(2)
+        assert self.check_my_project() == True
+
+    '''检查商城收货地址'''
+    def test_10_my_shop_address(self):
+        assert self.check_shop_address() == True
+
+    '''检查卡券中心'''
+    def test_11_my_coupon(self):
+        self.slide_bottom()
+        assert self.check_Coupon_Center() == True
+        self.shop_home()
+
+    '''检查我的收益-我是用户'''
+    def test_12_my_ueser_income(self):
+        assert self.check_myuser_income() == True
+        self.shop_home()
+
+    '''检查我的收益-会员'''
+    def test_13_my_sever_income(self):
+        assert self.check_mysever_income == True
+        self.shop_home()
+
+    '''检查活动分享'''
+    def test_14_my_share(self):
+        assert self.check_share_activity() == True
+        self.shop_home()
+
+    '''检查会员入口-库存管理-买库存'''
+    def test_15_my_buy_kucun(self):
+        assert self.check_saver_buy_kucun() == True
+        self.shop_home()
+
+    '''检查会员入口-库存管理-划拨库存'''
+    def test_16_my_transfer_kucun(self):
+        assert self.check_saver_transfer_kucun() == True
+        self.shop_home()
+
+    '''检查会员入口推广图片'''
+    def test_17_my_sever_promote(self):
+        assert self.check_sever_promote() == True
+        self.shop_home()
+
+    '''检查会员入口-红包管理'''
+    def test_18_my_sever_red(self):
+        assert self.check_envelope() == True
+        self.shop_home()
+
+    '''检查会员入口-我是服务商整个ui'''
+    def test_19_my_sever_home(self):
+        assert self.check_sever_home() == True
+        self.shop_home()
+
+    '''检查素材中心'''
+    def test_20_my_material(self):
+        assert self.check_material() == True
+        self.shop_home()
+
+    '''检查商品收藏'''
+    def test_21_my_collect(self):
+        assert self.check_collect() == True
+        self.shop_home()
+
+    '''检查历史预览'''
+    def test_22_my_history_record(self):
+        assert self.check_history_record() == True
+        self.shop_home()
+
+    '''检查设置--修改密码'''
+    def test_23_my_modify(self):
+        assert self.check_set_modify() == True
+        self.shop_home()
+
+    '''检查设置里面的ui'''
+    def test_24_my_set_up(self):
+        assert self.check_set_up_ui() == True
+        self.shop_home()
+
+    '''检查证件信息'''
+    def test_25_my_zhengjianId(self):
+        assert self.check_zhengjianID() == True
+        self.shop_home()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

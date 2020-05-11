@@ -1,0 +1,9 @@
+2020-04-14 09:16:27,771 - STF-AL00 - INFO - udid: 8BNDU17807002488-0c:8f:ff:c5:e1:9b-STF-AL00
+2020-04-14 09:16:28,002 - STF-AL00 - DEBUG - --> testU.setUpClass
+2020-04-14 09:16:29,599 - STF-AL00 - DEBUG - <-- testU.setUpClass, Success
+
+2020-04-14 09:16:29,599 - STF-AL00 - DEBUG - --> testU.test_01
+2020-04-14 09:16:34,599 - STF-AL00 - INFO - --> my_page1.click_my1
+2020-04-14 09:16:34,599 - STF-AL00 - INFO - 点击我的
+2020-04-14 09:16:39,541 - STF-AL00 - INFO - --> my_page1.shop_address
+2020-04-14 09:16:39,541 - STF-AL00 - INFO - 检查添加商城收货地址
